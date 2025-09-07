@@ -129,36 +129,23 @@ export function CommonHeader() {
                   {mainLinks.map(l => (
                     <Link key={l.href} href={l.href} className={cn('text-sm', pathname.startsWith(l.href) && 'font-semibold text-primary')}>{l.label}</Link>
                   ))}
-                  <Menu as="div" className="relative">
-                    <Menu.Button className="flex items-center gap-1 text-sm hover:underline">
-                      위젯 <ChevronDownIcon className="h-4 w-4" />
-                    </Menu.Button>
-                    <Transition
-                      enter="transition ease-out duration-100"
-                      enterFrom="transform opacity-0 scale-95"
-                      enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
-                      leaveFrom="transform opacity-100 scale-100"
-                      leaveTo="transform opacity-0 scale-95"
-                    >
-                      <Menu.Items className="absolute left-0 mt-2 w-[640px] origin-top-left rounded-md border border-border bg-bg p-4 shadow-xl grid grid-cols-2 gap-4 text-sm">
-                        {categories.map(cat => (
-                          <div key={cat.id} className="space-y-2">
-                            <div className="font-semibold text-gray-700">{cat.label}</div>
-                            <ul className="space-y-1">
-                              {cat.items.map(it => (
-                                <li key={it.href}>
-                                  <Link href={it.href} className="block rounded px-2 py-1 hover:bg-muted">
-                                    {it.label}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </Menu.Items>
-                    </Transition>
-                  </Menu>
+                  {/* 데스크톱: 항상 보이는 카테고리 리스트 */}
+                  <div className="hidden lg:flex items-center gap-6">
+                    {categories.map(cat => (
+                      <div key={cat.id} className="group relative">
+                        <button className="text-sm font-medium px-2 py-1 hover:underline">{cat.label}</button>
+                        <div className="absolute left-0 top-full mt-2 hidden group-hover:block w-56 origin-top-left rounded-md border border-border bg-bg p-3 shadow-lg text-sm">
+                          <ul className="space-y-1">
+                            {cat.items.map(it => (
+                              <li key={it.href}>
+                                <Link href={it.href} className="block rounded px-2 py-1 hover:bg-muted">{it.label}</Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
