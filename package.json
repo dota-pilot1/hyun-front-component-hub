@@ -1,0 +1,32 @@
+{
+  "name": "ui-pilot-for-admin",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "echo 'add eslint later'",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.5",
+    "class-variance-authority": "^0.7.0",
+    "next": "14.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^15.5.2",
+    "@types/node": "20.11.30",
+    "@types/react": "18.2.43",
+    "autoprefixer": "10.4.17",
+    "postcss": "8.4.35",
+    "remark-gfm": "^4.0.1",
+    "tailwindcss": "3.4.3",
+    "typescript": "5.4.5"
+  }
+}
